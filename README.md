@@ -1,6 +1,7 @@
 # get_next_line
-![/n](/Users/ael-amin/Desktop/1-_q02V1T9LWLszhDAlppmQg.jpg)
-
+---
+![](https://miro.medium.com/v2/resize:fit:4800/format:webp/1*_q02V1T9LWLszhDAlppmQg.png
+---
 `get_next_line` est une fonction en C permettant de lire une ligne depuis un descripteur de fichier à chaque appel, jusqu'à la fin du fichier ou une nouvelle ligne.
 
 ## Sommaire
