@@ -1,6 +1,6 @@
 # get_next_line
 ---
-![1*_q02V1T9LWLszhDAlppmQg.png](https://miro.medium.com/v2/resize:fit:4800/format:webp/1*_q02V1T9LWLszhDAlppmQg.png
+![1*_q02V1T9LWLszhDAlppmQg.png](https://miro.medium.com/v2/resize:fit:4800/format:webp/1*_q02V1T9LWLszhDAlppmQg.png)
 ---
 `get_next_line` est une fonction en C permettant de lire une ligne depuis un descripteur de fichier à chaque appel, jusqu'à la fin du fichier ou une nouvelle ligne.
 
@@ -34,5 +34,6 @@ Pour utiliser `get_next_line` dans vos projets, suivez ces étapes :
    ```sh
    git clone https://github.com/your_username/get_next_line.git
    cd get_next_line
+
 
 
