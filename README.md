@@ -34,6 +34,89 @@ Pour utiliser `get_next_line` dans vos projets, suivez ces étapes :
    ```sh
    git clone https://github.com/your_username/get_next_line.git
    cd get_next_line
+	make
 
+	Cela générera get_next_line.a, que vous pourrez lier à vos projets.
+
+	```
+## Utilisation
+
+	1- Incluez le fichier d'en-tête get_next_line.h dans votre code :
+		#include "get_next_line.h"
+	
+	2- Appelez la fonction get_next_line pour lire chaque ligne du fichier :
+		int fd;
+		char *line;
+
+		fd = open("file.txt", O_RDONLY);
+		while (get_next_line(fd, &line) > 0)
+		{
+    		printf("%s\n", line);
+    		free(line);
+		}
+		free(line);
+		close(fd);
+
+## Exemple de Makefile :
+```make
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+GNL = path/to/get_next_line.a
+INCLUDES = -I path/to/get_next_line/includes
+
+SRCS = main.c
+OBJS = $(SRCS:.c=.o)
+
+all: $(OBJS)
+    $(CC) $(CFLAGS) $(OBJS) $(GNL) -o my_program
+
+clean:
+    rm -f $(OBJS)
+
+fclean: clean
+    rm -f my_program
+
+re: fclean all
+
+.PHONY: all clean fclean re
+```
+
+## Exemples
+Voici un exemple d'utilisation de get_next_line :
+```c
+
+#include "get_next_line.h"
+#include <fcntl.h>
+#include <stdio.h>
+
+int main() {
+    int fd = open("example.txt", O_RDONLY);
+    if (fd < 0) {
+        perror("open");
+        return 1;
+    }
+
+    char *line;
+    while (get_next_line(fd, &line) > 0) {
+        printf("%s\n", line);
+        free(line);
+    }
+    free(line);  // N'oubliez pas de libérer la dernière ligne lue.
+    close(fd);
+    return 0;
+}
+```
+
+## Tests
+
+Pour tester la bibliothèque, vous pouvez utiliser les outils et frameworks suivants :
+
+- [42TESTERS-GNL](https://github.com/Mazoise/42TESTERS-GNL)
+- [gnlTester](https://github.com/Tripouille/gnlTester)
+- [gnlTesterExtended](https://github.com/alelievr/gnlTesterExtended)
+
+## Auteurs
+
+Ce projet a été réalisé par [ael-amin](https://github.com/ael-amin).
 
 
